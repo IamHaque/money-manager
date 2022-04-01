@@ -1,0 +1,59 @@
+<ng-container *ngIf="!showAddCategory">
+  <div class="categories-container">
+    <div class="header">
+      <div class="abort">
+        <span class="icon" (click)="triggerClickEvent('back')"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></span>
+        <span class="title">Select Category</span>
+      </div>
+
+      <button
+        class="settings"
+        type="submit"
+        (click)="addCategoryOrShowSettings()"
+      >
+        <i class="fa-solid {{ canEditCategories ? 'fa-plus' : 'fa-gear' }}"></i>
+      </button>
+    </div>
+
+    <ng-container *ngIf="hasCategories()">
+      <div class="category-list">
+        <div
+          class="category-item"
+          *ngFor="let category of categories; let i = index"
+          (click)="selectCategory(i)"
+        >
+          <div class="category-item__icon {{ category.color }}">
+            <i class="{{ category.icon }}"></i>
+          </div>
+          <div class="category-item__title">{{ category.title }}</div>
+          <div
+            class="category-item__selected"
+            [ngClass]="{ selected: selectedCategoryIndex === i }"
+            (click)="checkAndDelete(i)"
+          >
+            <i class="fa-regular {{ getIconClass(i) }}"></i>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!hasCategories()">
+      <div class="no-categories">
+        <div class="icon"><app-categories-icon></app-categories-icon></div>
+        <div class="title">No Categories</div>
+        <div class="subtitle">
+          Tap the <strong>+</strong> button to add categories.
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showAddCategory">
+  <app-add-category
+    [categoryType]="categoryType"
+    (clickEvent)="handleAddCategoryEvent($event)"
+  ></app-add-category>
+</ng-container>

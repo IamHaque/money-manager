@@ -1,0 +1,74 @@
+<ng-container *ngIf="!showAddWallet">
+  <div class="wallet-container">
+    <div class="container-item container-main">
+      <app-wallet-header
+        [title]="'Wallet'"
+        [toManage]="getWalletsToManageCount()"
+      ></app-wallet-header>
+
+      <div class="wallet-main">
+        <app-wallet-item
+          *ngFor="let wallet of wallets"
+          [icon]="wallet.icon"
+          [balance]="wallet.balance"
+          [title]="wallet.name"
+          [color]="wallet.color"
+        ></app-wallet-item>
+
+        <div class="new-wallet-item" (click)="toggleAddWallet()">
+          <span><i class="fa-solid fa-plus"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-item">
+      <app-wallet-header
+        [title]="'Budget'"
+        [toManage]="'0'"
+      ></app-wallet-header>
+
+      <app-divider></app-divider>
+      <div class="add-wallet-item">
+        <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        <span class="desc">Add Budget</span>
+      </div>
+    </div>
+
+    <div class="container-item">
+      <app-wallet-header [title]="'Goal'" [toManage]="'0'"></app-wallet-header>
+
+      <app-divider></app-divider>
+      <div class="add-wallet-item">
+        <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        <span class="desc">Add Goal</span>
+      </div>
+    </div>
+
+    <div class="container-item">
+      <app-wallet-header [title]="'Debt'" [toManage]="'0'"></app-wallet-header>
+
+      <app-divider></app-divider>
+      <div class="add-wallet-item">
+        <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        <span class="desc">Add Debt</span>
+      </div>
+    </div>
+
+    <div class="container-item">
+      <app-wallet-header
+        [title]="'Recurring'"
+        [toManage]="'0'"
+      ></app-wallet-header>
+
+      <app-divider></app-divider>
+      <div class="add-wallet-item">
+        <span class="icon"><i class="fa-solid fa-plus"></i></span>
+        <span class="desc">Add Recurring</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showAddWallet">
+  <app-add-wallet (clickEvent)="handleAddWalletEvent($event)"></app-add-wallet>
+</ng-container>

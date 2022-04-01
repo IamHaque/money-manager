@@ -1,0 +1,221 @@
+.add-wallet {
+  inset: 0;
+  z-index: 10;
+  position: fixed;
+  background-color: var(--bg-dark-clr);
+
+  & > * {
+    background-color: var(--fg-dark-clr);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  padding: var(--main-spacing);
+  justify-content: space-between;
+
+  .abort {
+    .icon {
+      cursor: pointer;
+      color: var(--text-muted-dark-clr);
+      padding-right: calc(var(--main-spacing) * 2);
+
+      &:focus,
+      &:hover {
+        color: var(--text-dark-clr);
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  .save {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: var(--text-muted-dark-clr);
+
+    &:focus,
+    &:hover {
+      color: var(--text-dark-clr);
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: var(--main-spacing);
+  margin: var(--main-spacing) 0;
+  gap: calc(var(--main-spacing) * 2);
+  background-color: var(--fg-dark-clr);
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: calc(var(--main-spacing) * 1.5);
+  }
+
+  .formgroup {
+    display: flex;
+    gap: calc(var(--main-spacing) * 0.2);
+    flex-direction: column;
+
+    label {
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .pseudo-input,
+    input {
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      color: var(--text-dark-clr);
+      background-color: transparent;
+      padding: calc(var(--main-spacing) * 0.5) calc(var(--main-spacing) * 0.5)
+        5px 0;
+      border-bottom: 1px solid var(--text-muted-dark-clr);
+    }
+
+    .pseudo-input,
+    input::placeholder {
+      font-weight: 400;
+      font-family: inherit;
+      color: var(--text-muted-dark-clr);
+    }
+
+    .pseudo-input {
+      gap: 5px;
+      display: grid;
+      cursor: pointer;
+      line-height: 2rem;
+      padding-left: 5px;
+      align-items: center;
+      grid-template-columns: 1fr 20px;
+
+      &:focus {
+        border-color: var(--text-dark-clr);
+      }
+
+      &.hasValue {
+        color: var(--text-dark-clr);
+      }
+
+      .left {
+        height: 100%;
+        font-size: 1.5rem;
+        border-radius: 3px;
+        display: inline-block;
+        color: hsl(var(--hue), var(--saturation), var(--lightness));
+        background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+      }
+
+      .right {
+        font-size: 1rem;
+        text-align: end;
+        display: inline-block;
+      }
+
+      &:active,
+      &:hover {
+        .left,
+        .right {
+          color: var(--text-dark-clr);
+        }
+      }
+    }
+
+    #icon,
+    #color {
+      opacity: 0;
+      left: -200vw;
+      display: none;
+      position: absolute;
+    }
+  }
+
+  .formgroup.prefix {
+    position: relative;
+
+    input {
+      padding-left: calc(var(--main-spacing) * 1);
+    }
+
+    span {
+      left: 0;
+      bottom: 6px;
+      font-size: 1.1rem;
+      position: absolute;
+    }
+  }
+}
+
+jw-modal {
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .container {
+    margin-top: 1rem;
+    display: grid;
+    gap: var(--main-spacing);
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, calc(var(--main-spacing) * 2.5));
+  }
+
+  .icons-container {
+    span {
+      display: flex;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 35%;
+      align-items: center;
+      justify-content: center;
+      transition: 200ms ease-in-out;
+      height: calc(var(--main-spacing) * 2.5);
+
+      &.selected,
+      &:active,
+      &:hover {
+        background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+      }
+    }
+  }
+
+  .colors-container {
+    grid-template-columns: repeat(3, 1fr);
+
+    span {
+      height: 50px;
+      min-width: 50px;
+      cursor: pointer;
+      border-radius: 3px;
+      background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+
+      &:active,
+      &:hover {
+        background-color: hsl(
+          var(--hue),
+          var(--saturation),
+          calc(var(--lightness) * 0.8)
+        );
+      }
+
+      &.selected {
+        border: 2px solid white;
+      }
+    }
+  }
+}

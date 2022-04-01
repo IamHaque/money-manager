@@ -1,0 +1,9 @@
+<div class="footer">
+  <app-footer-item
+    *ngFor="let item of footerItems"
+    [icon]="item.icon"
+    [active]="item.active"
+    [title]="item.title"
+    [link]="item.link"
+  ></app-footer-item>
+</div>

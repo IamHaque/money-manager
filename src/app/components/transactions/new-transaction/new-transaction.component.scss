@@ -1,0 +1,170 @@
+.new-transaction-container {
+  inset: 0;
+  z-index: 10;
+  position: fixed;
+  background-color: var(--bg-dark-clr);
+
+  & > * {
+    background-color: var(--fg-dark-clr);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  padding: var(--main-spacing);
+  justify-content: space-between;
+
+  .abort {
+    .icon {
+      cursor: pointer;
+      color: var(--text-muted-dark-clr);
+      padding-right: calc(var(--main-spacing) * 2);
+
+      &:focus,
+      &:hover {
+        color: var(--text-dark-clr);
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  .save {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: var(--text-muted-dark-clr);
+
+    &:focus,
+    &:hover {
+      color: var(--text-dark-clr);
+    }
+  }
+}
+
+.tabs {
+  display: grid;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  grid-template-columns: repeat(3, 1fr);
+
+  .tab {
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: normal;
+    padding: calc(var(--main-spacing) * 0.7);
+    transition: 200ms ease-in-out;
+
+    &.income-tab.active {
+      background-color: var(--income-clr);
+    }
+
+    &.expense-tab.active {
+      background-color: var(--expense-clr);
+    }
+
+    &.transfer-tab.active {
+      background-color: var(--transfer-clr);
+    }
+
+    &:active,
+    &:hover {
+      background-color: hsl(0, 0%, 10%);
+
+      &.income-tab.active {
+        background-color: var(--income-active-clr);
+      }
+
+      &.expense-tab.active {
+        background-color: var(--expense-active-clr);
+      }
+
+      &.transfer-tab.active {
+        background-color: var(--transfer-active-clr);
+      }
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--main-spacing) * 2);
+  padding: var(--main-spacing);
+  // padding-bottom: calc(var(--main-spacing) * 2);
+
+  .formgroup {
+    display: flex;
+    gap: calc(var(--main-spacing) * 0.2);
+    flex-direction: column;
+
+    label {
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .pseudo-input,
+    input {
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      color: var(--text-dark-clr);
+      background-color: transparent;
+      padding: calc(var(--main-spacing) * 0.5) calc(var(--main-spacing) * 0.5)
+        5px 0;
+      border-bottom: 1px solid var(--text-muted-dark-clr);
+    }
+
+    .pseudo-input,
+    input::placeholder {
+      font-weight: 400;
+      font-family: inherit;
+      color: var(--text-muted-dark-clr);
+    }
+
+    .pseudo-input {
+      &:focus {
+        border-color: var(--text-dark-clr);
+      }
+
+      &.hasValue {
+        color: var(--text-dark-clr);
+      }
+    }
+
+    #fromWallet,
+    #wallet,
+    #category {
+      opacity: 0;
+      left: -200vw;
+      display: none;
+      position: absolute;
+    }
+  }
+
+  .formgroup.prefix {
+    position: relative;
+
+    input {
+      padding-left: calc(var(--main-spacing) * 1);
+    }
+
+    span {
+      left: 0;
+      bottom: 6px;
+      font-size: 1.1rem;
+      position: absolute;
+    }
+  }
+}

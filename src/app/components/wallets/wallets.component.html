@@ -1,0 +1,40 @@
+<div class="wallets-container">
+  <div class="header">
+    <div class="abort">
+      <span class="icon" (click)="triggerClickEvent('back')"
+        ><i class="fa-solid fa-arrow-left"></i
+      ></span>
+      <span class="title">Select Wallet</span>
+    </div>
+  </div>
+
+  <div class="wallet-list">
+    <div
+      class="wallet-item"
+      *ngFor="let wallet of wallets; let i = index"
+      (click)="selectWallet(i)"
+    >
+      <div class="wallet-item__icon {{ wallet.color }}">
+        <i class="fa-solid {{ wallet.icon }}"></i>
+      </div>
+
+      <div class="wallet-item__main">
+        <div class="wallet-item__main--title">{{ wallet.name }}</div>
+        <div class="wallet-item__main--balance">$ {{ wallet.balance }}</div>
+      </div>
+
+      <div
+        class="wallet-item__selected"
+        [ngClass]="{ selected: selectedWalletIndex === i }"
+      >
+        <i
+          class="fa-regular"
+          [ngClass]="{
+            'fa-circle': selectedWalletIndex !== i,
+            'fa-circle-check': selectedWalletIndex === i
+          }"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>

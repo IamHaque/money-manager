@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="header">
+    <div class="left">
+      <a [routerLink]="'/home'" class="icon"
+        ><i class="fa-solid fa-arrow-left"></i
+      ></a>
+      <span class="title">Record</span>
+    </div>
+
+    <div class="right">
+      <button class="edit" type="button" (click)="editTransaction()">
+        <i class="fa-regular fa-pen-to-square"></i>
+      </button>
+      <button class="delete" type="button" (click)="deleteTransaction()">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main__info">
+      <div class="main__info--row main">
+        <span class="icon  {{ getTransactionColor() }}"
+          ><i class="{{ getTransactionIcon() }}"></i
+        ></span>
+        <span class="name">{{ showDesc() }}</span>
+      </div>
+
+      <div class="main__info--row">
+        <span class="title">Category</span>
+        <span class="value">{{ showCategory() }}</span>
+      </div>
+
+      <div class="main__info--row">
+        <span class="title">Amount</span>
+        <span
+          class="value"
+          [ngClass]="{
+            income: transaction.type === 0,
+            expense: transaction.type === 1,
+            transfer: transaction.type === 2
+          }"
+          >{{ formatAmount() }}</span
+        >
+      </div>
+
+      <div class="main__info--row">
+        <span class="title">Date</span>
+        <span class="value">{{ transaction.date }}</span>
+      </div>
+
+      <div class="main__info--row">
+        <span class="title">Wallet</span>
+        <span class="value">{{ showWallet() }}</span>
+      </div>
+
+      <div class="main__info--row">
+        <span class="title">Type</span>
+        <span class="value">{{ showTransactionType() }}</span>
+      </div>
+    </div>
+  </div>
+</div>

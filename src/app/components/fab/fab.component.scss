@@ -1,0 +1,26 @@
+.fab {
+  right: 2rem;
+  border: none;
+  outline: none;
+  width: 3.5rem;
+  bottom: 5rem;
+  height: 3.5rem;
+  position: fixed;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  color: var(--text-muted-dark-clr);
+  background-color: var(--bg-fab-clr);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab:active,
+.fab:hover {
+  color: var(--text-dark-clr);
+  background-color: var(--fg-dark-clr);
+}

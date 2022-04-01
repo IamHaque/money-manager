@@ -1,0 +1,126 @@
+<div class="new-transaction-container">
+  <div class="header">
+    <div class="abort">
+      <a [routerLink]="'/home'" class="icon"
+        ><i class="fa-solid fa-arrow-left"></i
+      ></a>
+      <span class="title">{{ tabs[activeTabIndex] }}</span>
+    </div>
+
+    <button class="save" type="submit" (click)="submitForm()">Save</button>
+  </div>
+
+  <div class="tabs">
+    <div
+      *ngFor="let tab of tabs; let i = index"
+      class="tab {{ tab }}-tab"
+      [ngClass]="{ active: i === activeTabIndex }"
+      (click)="changeTab(i)"
+    >
+      {{ tab }}
+    </div>
+  </div>
+
+  <form class="main" [formGroup]="form" novalidate autocomplete="off">
+    <div class="formgroup">
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" formControlName="date" />
+    </div>
+
+    <div class="formgroup">
+      <label for="time">Time</label>
+      <input type="time" id="time" name="time" formControlName="time" />
+    </div>
+
+    <div class="formgroup prefix">
+      <label for="amount">Amount</label>
+      <input
+        type="text"
+        id="amount"
+        name="amount"
+        formControlName="amount"
+        placeholder="0"
+      />
+      <span>$</span>
+    </div>
+
+    <div class="formgroup">
+      <label for="desc">Desc</label>
+      <input
+        type="text"
+        id="desc"
+        name="desc"
+        formControlName="desc"
+        placeholder="Select description"
+      />
+    </div>
+
+    <div class="formgroup" *ngIf="!isTransferTab()">
+      <label for="category">Category</label>
+      <input
+        type="text"
+        id="category"
+        name="category"
+        formControlName="category"
+      />
+      <div
+        class="pseudo-input"
+        (click)="toggleCategories()"
+        tabindex="0"
+        [ngClass]="{ hasValue: selectedCategory[0] > -1 }"
+      >
+        {{ showCategoryValue() }}
+      </div>
+    </div>
+
+    <div class="formgroup" *ngIf="isTransferTab()">
+      <label for="fromWallet">From Wallet</label>
+      <input
+        type="text"
+        id="fromWallet"
+        name="fromWallet"
+        formControlName="fromWallet"
+      />
+      <div
+        class="pseudo-input"
+        (click)="toggleWallets('from')"
+        tabindex="0"
+        [ngClass]="{ hasValue: selectedFromWallet[0] > -1 }"
+      >
+        {{ showWalletValue("from") }}
+      </div>
+    </div>
+
+    <div class="formgroup">
+      <label for="wallet">{{ isTransferTab() ? "To " : "" }}Wallet</label>
+      <input type="text" id="wallet" name="wallet" formControlName="wallet" />
+      <div
+        class="pseudo-input"
+        (click)="toggleWallets()"
+        tabindex="0"
+        [ngClass]="{ hasValue: selectedWallet[0] > -1 }"
+      >
+        {{ showWalletValue() }}
+      </div>
+    </div>
+  </form>
+
+  <app-categories
+    *ngIf="isCategoriesShown"
+    [selectedCategoryIndex]="selectedCategory[0]"
+    [categoryType]="getCategoryType()"
+    (clickEvent)="handleCategoryEvent($event)"
+  ></app-categories>
+
+  <app-wallets
+    *ngIf="isFromWalletShown"
+    [selectedWalletIndex]="selectedFromWallet[0]"
+    (clickEvent)="handleWalletEvent($event, 'from')"
+  ></app-wallets>
+
+  <app-wallets
+    *ngIf="isWalletsShown"
+    [selectedWalletIndex]="selectedWallet[0]"
+    (clickEvent)="handleWalletEvent($event)"
+  ></app-wallets>
+</div>

@@ -1,0 +1,32 @@
+.main {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: var(--main-spacing);
+  padding-bottom: var(--main-spacing);
+}
+
+.no-transactions {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--main-spacing);
+  padding: var(--main-spacing);
+
+  .icon {
+    width: 40%;
+    max-width: 200px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted-dark-clr);
+  }
+}

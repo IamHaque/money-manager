@@ -1,0 +1,16 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-size: 16px;
+  font-weight: 300;
+  flex-direction: column;
+  color: var(--text-dark-clr);
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--bg-dark-clr);
+
+  main {
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
+}

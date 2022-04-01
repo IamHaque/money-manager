@@ -1,0 +1,23 @@
+<ng-container *ngIf="!hasTransactions()">
+  <div class="no-transactions">
+    <div class="icon"><app-todolist-icon></app-todolist-icon></div>
+    <div class="title">No Record</div>
+    <div class="subtitle">
+      Tap the <strong>+</strong> button to add your first record.
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="hasTransactions()">
+  <div class="main">
+    <app-transactions-container
+      *ngFor="let key of Object.keys(transactionsByDate)"
+      [date]="key"
+      [day]="transactionsByDate[key].day"
+      [monthYear]="transactionsByDate[key].monthYear"
+      [transactions]="transactionsByDate[key].transactions"
+    ></app-transactions-container>
+  </div>
+</ng-container>
+
+<app-fab></app-fab>

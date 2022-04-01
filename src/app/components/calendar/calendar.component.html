@@ -1,0 +1,49 @@
+<div class="calendar-container">
+  <div class="time-period">
+    <span class="left" (click)="decrementMonth()"
+      ><i class="fa-solid fa-angle-left"></i
+    ></span>
+    <span class="middle">{{ getMonthYear(date) }}</span>
+    <span class="right" (click)="incrementMonth()"
+      ><i class="fa-solid fa-angle-right"></i
+    ></span>
+  </div>
+
+  <div class="spending-overview">
+    <div class="spending-overview--item income">
+      <div class="title">Income</div>
+      <div class="amount">$ {{ transactionSummary.income }}</div>
+    </div>
+    <div class="spending-overview--item expense">
+      <div class="title">Expense</div>
+      <div class="amount">$ {{ transactionSummary.expense }}</div>
+    </div>
+    <div class="spending-overview--item total">
+      <div class="title">Total</div>
+      <div class="amount">
+        $ {{ transactionSummary.income - transactionSummary.expense }}
+      </div>
+    </div>
+  </div>
+
+  <div class="calendar">
+    <div class="days">
+      <span *ngFor="let day of days">{{ day }}</span>
+    </div>
+
+    <div class="dates">
+      <span
+        *ngFor="let date of dates"
+        [ngClass]="{
+          inactive: shouldBeInactive(date.type),
+          expense: date.amount < 0,
+          income: date.amount > 0,
+          today: date.isToday
+        }"
+      >
+        <span class="date">{{ date.date }}</span>
+        <span class="amount">{{ formatAmount(date.amount) }}</span>
+      </span>
+    </div>
+  </div>
+</div>

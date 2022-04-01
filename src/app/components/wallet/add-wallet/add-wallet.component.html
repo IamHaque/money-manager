@@ -1,0 +1,100 @@
+<div class="add-wallet">
+  <div class="header">
+    <div class="abort">
+      <span class="icon" (click)="triggerClickEvent('back')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+      <span class="title">Add Wallet</span>
+    </div>
+
+    <button class="save" type="submit" (click)="submitForm()">Save</button>
+  </div>
+
+  <form class="main" [formGroup]="form" novalidate autocomplete="off">
+    <div class="formgroup">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        formControlName="name"
+        placeholder="Enter name"
+      />
+    </div>
+
+    <div class="formgroup prefix">
+      <label for="balance">Balance</label>
+      <input
+        type="text"
+        id="balance"
+        name="balance"
+        formControlName="balance"
+        placeholder="0"
+      />
+      <span>$</span>
+    </div>
+
+    <div class="row">
+      <div class="formgroup">
+        <label for="icon">Icon</label>
+        <input type="text" id="icon" name="icon" formControlName="icon" />
+        <div
+          class="pseudo-input"
+          (click)="openModal('icon-modal')"
+          tabindex="0"
+        >
+          <span class="left">
+            <i class="{{ icons[selectedIcon] }}"></i>
+          </span>
+          <span class="right">
+            <i class="fa-solid fa-chevron-down"></i>
+          </span>
+        </div>
+
+        <jw-modal id="icon-modal">
+          <h1>Pick Icon</h1>
+
+          <div class="container icons-container">
+            <span
+              *ngFor="let icon of icons; let i = index"
+              (click)="closeModal('icon-modal', i)"
+              class="{{ colors[selectedColor] }}"
+              [ngClass]="{ selected: i === selectedIcon }"
+            >
+              <i class="{{ icon }}"></i>
+            </span>
+          </div>
+        </jw-modal>
+      </div>
+
+      <div class="formgroup">
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" formControlName="color" />
+        <div
+          class="pseudo-input"
+          (click)="openModal('color-modal')"
+          tabindex="0"
+        >
+          <span class="{{ colors[selectedColor] }} left"></span>
+          <span class="right">
+            <i class="fa-solid fa-chevron-down"></i>
+          </span>
+        </div>
+
+        <jw-modal id="color-modal">
+          <h1>Pick Color</h1>
+
+          <div class="container colors-container">
+            <span
+              *ngFor="let color of colors; let i = index"
+              (click)="closeModal('color-modal', i)"
+              class="{{ color }}"
+              [ngClass]="{ selected: i === selectedColor }"
+            >
+            </span>
+          </div>
+        </jw-modal>
+      </div>
+    </div>
+  </form>
+</div>

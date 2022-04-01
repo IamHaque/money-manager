@@ -1,0 +1,15 @@
+.wallet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .manage {
+    font-size: 0.8rem;
+  }
+}

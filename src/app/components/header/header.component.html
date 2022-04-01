@@ -1,0 +1,17 @@
+<div class="header">
+  <div class="header__main">
+    <div class="header__main__left">
+      <span>{{ username }}</span>
+    </div>
+
+    <div class="header__main__right">
+      <span><i class="fa-solid fa-list-ul"></i></span>
+      <span><i class="fa-solid fa-magnifying-glass"></i></span>
+    </div>
+  </div>
+
+  <div class="header__balance" *ngIf="showHeader">
+    <span><i class="fa-solid fa-sack-dollar"></i></span>
+    <span>Balance: $ {{ accountBalance }}</span>
+  </div>
+</div>

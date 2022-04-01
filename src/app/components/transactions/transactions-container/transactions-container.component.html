@@ -1,0 +1,26 @@
+<div class="day-summary">
+  <div class="day-summary__header">
+    <div class="day-summary__header--left">
+      <span class="day-summary--date">{{
+        date.length === 1 ? "0" + date : date
+      }}</span>
+      <div class="day-summary--day">
+        <span>{{ day }}</span>
+        <span>{{ monthYear }}</span>
+      </div>
+    </div>
+    <div class="day-summary__header--right">
+      <span>$ {{ amountSpent }}</span>
+    </div>
+  </div>
+
+  <app-divider [m]="'0'"></app-divider>
+
+  <div class="day-summary__content">
+    <app-transaction-item
+      *ngFor="let transaction of transactions"
+      [transaction]="transaction"
+      (click)="showTransactionInfo(transaction)"
+    ></app-transaction-item>
+  </div>
+</div>

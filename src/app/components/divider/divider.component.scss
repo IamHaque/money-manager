@@ -1,0 +1,11 @@
+.divider {
+  margin-bottom: var(--main-spacing);
+  border-bottom: 1px solid hsl(0, 0%, 20%);
+  margin-top: calc(var(--main-spacing) - 1px);
+  margin-left: calc(var(--main-spacing) * -1);
+  margin-right: calc(var(--main-spacing) * -1);
+}
+
+.m-0 {
+  margin: 0;
+}

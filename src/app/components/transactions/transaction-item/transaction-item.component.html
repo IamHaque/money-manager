@@ -1,0 +1,20 @@
+<div class="transaction-item">
+  <div class="transaction-item__icon {{ getTransactionColor() }}">
+    <span><i class="{{ getTransactionIcon() }}"></i></span>
+  </div>
+  <div class="transaction-item__main">
+    <span>{{ showDesc() }}</span>
+    <span>{{ showWallet() }}</span>
+  </div>
+  <div class="transaction-item__meta">
+    <span
+      [ngClass]="{
+        income: transaction.type === 0,
+        expense: transaction.type === 1,
+        transfer: transaction.type === 2
+      }"
+      >{{ formatAmount() }}
+    </span>
+    <span>{{ time }}</span>
+  </div>
+</div>

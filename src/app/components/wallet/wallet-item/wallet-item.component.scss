@@ -1,0 +1,53 @@
+.wallet-item {
+  gap: 5px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 0.7rem;
+  flex-direction: column;
+  justify-content: center;
+  transition: 200ms ease-in-out;
+  padding: calc(var(--main-spacing) * 0.7) var(--main-spacing);
+  background-color: hsl(
+    var(--hue, 262),
+    var(--saturation, 52%),
+    var(--lightness, 47%)
+  );
+
+  &:active,
+  &:hover {
+    background-color: hsl(
+      var(--hue, 262),
+      var(--saturation, 52%),
+      calc(var(--lightness, 47%) * 0.8)
+    );
+  }
+
+  .icon {
+    padding: 5px;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    font-size: 1.1rem;
+    align-items: center;
+    border-radius: 0.7rem;
+    justify-content: center;
+    background-color: hsl(
+      var(--hue),
+      var(--saturation),
+      calc(var(--lightness) * 1.25)
+    );
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: hsl(var(--hue), var(--saturation), calc(var(--lightness) * 1.4));
+  }
+
+  .amount {
+    font-size: 0.9rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+}

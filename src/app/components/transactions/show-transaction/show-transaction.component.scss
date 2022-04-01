@@ -1,0 +1,106 @@
+.container {
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  position: fixed;
+  grid-template-rows: auto 1fr;
+  background-color: var(--bg-dark-clr);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  padding: var(--main-spacing);
+  justify-content: space-between;
+  background-color: var(--fg-dark-clr);
+
+  .left {
+    .icon {
+      cursor: pointer;
+      color: var(--text-muted-dark-clr);
+      padding-right: calc(var(--main-spacing) * 2);
+
+      &:focus,
+      &:hover {
+        color: var(--text-dark-clr);
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  .right {
+    & > button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1.1rem;
+      text-transform: uppercase;
+      background-color: transparent;
+      margin-left: var(--main-spacing);
+      color: var(--text-muted-dark-clr);
+
+      &:focus,
+      &:hover {
+        color: var(--text-dark-clr);
+      }
+    }
+  }
+}
+
+.main {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--main-spacing);
+    padding: var(--main-spacing);
+    margin: var(--main-spacing) 0;
+    background-color: var(--fg-dark-clr);
+
+    &--row {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 4fr;
+
+      .title {
+        font-size: 0.8rem;
+        font-weight: normal;
+        color: var(--text-muted-dark-clr);
+      }
+
+      .value {
+        letter-spacing: 1px;
+      }
+    }
+
+    .main {
+      display: flex;
+      font-size: 1.5rem;
+      gap: var(--main-spacing);
+
+      .icon {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        border-radius: 0.7rem;
+        justify-content: center;
+        background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+
+        &.transfer-bg {
+          background-color: var(--transfer-clr);
+        }
+      }
+
+      .name {
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

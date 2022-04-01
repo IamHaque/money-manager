@@ -1,0 +1,123 @@
+.categories-container {
+  inset: 0;
+  z-index: 100;
+  position: fixed;
+  background-color: var(--bg-dark-clr);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  padding: var(--main-spacing);
+  justify-content: space-between;
+  background-color: var(--fg-dark-clr);
+
+  .abort {
+    .icon {
+      cursor: pointer;
+      color: var(--text-muted-dark-clr);
+      padding-right: calc(var(--main-spacing) * 2);
+
+      &:focus,
+      &:hover {
+        color: var(--text-dark-clr);
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  .settings {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: var(--text-muted-dark-clr);
+
+    &:focus,
+    &:hover {
+      color: var(--text-dark-clr);
+    }
+  }
+}
+
+.category-list {
+  overflow-y: scroll;
+
+  .category-item {
+    display: grid;
+    cursor: pointer;
+    align-items: center;
+    gap: var(--main-spacing);
+    grid-template-columns: auto 1fr 2rem;
+    transition: 200ms ease-in-out;
+    padding: calc(var(--main-spacing) * 0.8) var(--main-spacing);
+
+    &:active,
+    &:hover {
+      background-color: var(--bg-dark-clr-hover);
+    }
+
+    &__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      justify-content: center;
+      background-color: hsl(
+        var(--hue, 262),
+        var(--saturation, 52%),
+        var(--lightness, 47%)
+      );
+    }
+
+    &__selected {
+      text-align: end;
+      font-size: 1.5rem;
+      color: var(--text-muted-dark-clr);
+
+      &.selected {
+        color: var(--text-dark-clr);
+      }
+
+      &:active,
+      &:hover {
+        color: var(--text-dark-clr);
+      }
+    }
+  }
+}
+
+.no-categories {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--main-spacing);
+  padding: var(--main-spacing);
+
+  .icon {
+    width: 40%;
+    max-width: 200px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted-dark-clr);
+  }
+}

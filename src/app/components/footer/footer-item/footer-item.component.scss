@@ -1,0 +1,17 @@
+.footer__item {
+  gap: 2px;
+  display: flex;
+  cursor: pointer;
+  font-size: 0.8rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-muted-dark-clr);
+  padding: calc(var(--main-spacing) * 0.8) calc(var(--main-spacing) * 0.3);
+}
+
+.footer__item:active,
+.footer__item:hover,
+.footer__item.active {
+  color: var(--text-dark-clr);
+}

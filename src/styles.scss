@@ -1,1 +1,545 @@
-/* You can add global styles to this file, and also import other style files */
+*:root {
+  --bg-dark-clr: hsl(0, 0%, 10%);
+  --fg-dark-clr: hsl(0, 0%, 15%);
+  --bg-dark-clr-hover: hsl(0, 0%, 18%);
+  --bg-fab-clr: hsl(0, 0%, 25%);
+
+  --today-clr: hsl(208, 75%, 30%);
+
+  --income-clr: hsl(208, 75%, 57%);
+  --expense-clr: hsl(355, 81%, 57%);
+  --transfer-clr: hsl(206, 11%, 45%);
+
+  --income-active-clr: hsl(208, 75%, 47%);
+  --expense-active-clr: hsl(355, 81%, 47%);
+  --transfer-active-clr: hsl(206, 11%, 35%);
+
+  --text-dark-clr: hsl(0, 0%, 89%);
+  --text-muted-dark-clr: hsl(0, 0%, 57%);
+
+  --main-spacing: 1rem;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.income {
+  color: var(--income-clr);
+}
+
+.expense {
+  color: var(--expense-clr);
+}
+
+.transfer {
+  color: inherit;
+}
+
+.blue {
+  --hue: 231;
+  --saturation: 48%;
+  --lightness: 48%;
+}
+
+.red {
+  --hue: 4;
+  --saturation: 90%;
+  --lightness: 58%;
+}
+
+.green {
+  --hue: 174;
+  --saturation: 100%;
+  --lightness: 29%;
+}
+
+.orange {
+  --hue: 14;
+  --saturation: 100%;
+  --lightness: 57%;
+}
+
+.color-0 {
+  --hue: 4;
+  --saturation: 90%;
+  --lightness: 58%;
+}
+.color-1 {
+  --hue: 5;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-2 {
+  --hue: 0;
+  --saturation: 100%;
+  --lightness: 66%;
+}
+.color-3 {
+  --hue: 348;
+  --saturation: 100%;
+  --lightness: 55%;
+}
+.color-4 {
+  --hue: 0;
+  --saturation: 100%;
+  --lightness: 42%;
+}
+.color-5 {
+  --hue: 340;
+  --saturation: 82%;
+  --lightness: 52%;
+}
+.color-6 {
+  --hue: 340;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-7 {
+  --hue: 340;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-8 {
+  --hue: 339;
+  --saturation: 100%;
+  --lightness: 48%;
+}
+.color-9 {
+  --hue: 333;
+  --saturation: 84%;
+  --lightness: 42%;
+}
+.color-10 {
+  --hue: 291;
+  --saturation: 64%;
+  --lightness: 42%;
+}
+.color-11 {
+  --hue: 291;
+  --saturation: 95%;
+  --lightness: 75%;
+}
+.color-12 {
+  --hue: 291;
+  --saturation: 96%;
+  --lightness: 62%;
+}
+.color-13 {
+  --hue: 291;
+  --saturation: 100%;
+  --lightness: 49%;
+}
+.color-14 {
+  --hue: 280;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-15 {
+  --hue: 262;
+  --saturation: 52%;
+  --lightness: 47%;
+}
+.color-16 {
+  --hue: 262;
+  --saturation: 100%;
+  --lightness: 77%;
+}
+.color-17 {
+  --hue: 256;
+  --saturation: 100%;
+  --lightness: 65%;
+}
+.color-18 {
+  --hue: 259;
+  --saturation: 100%;
+  --lightness: 56%;
+}
+.color-19 {
+  --hue: 265;
+  --saturation: 100%;
+  --lightness: 46%;
+}
+.color-20 {
+  --hue: 231;
+  --saturation: 48%;
+  --lightness: 48%;
+}
+.color-21 {
+  --hue: 231;
+  --saturation: 100%;
+  --lightness: 77%;
+}
+.color-22 {
+  --hue: 231;
+  --saturation: 99%;
+  --lightness: 66%;
+}
+.color-23 {
+  --hue: 231;
+  --saturation: 99%;
+  --lightness: 62%;
+}
+.color-24 {
+  --hue: 231;
+  --saturation: 99%;
+  --lightness: 59%;
+}
+.color-25 {
+  --hue: 207;
+  --saturation: 90%;
+  --lightness: 54%;
+}
+.color-26 {
+  --hue: 217;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-27 {
+  --hue: 218;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-28 {
+  --hue: 218;
+  --saturation: 100%;
+  --lightness: 58%;
+}
+.color-29 {
+  --hue: 224;
+  --saturation: 100%;
+  --lightness: 58%;
+}
+.color-30 {
+  --hue: 199;
+  --saturation: 98%;
+  --lightness: 48%;
+}
+.color-31 {
+  --hue: 198;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-32 {
+  --hue: 199;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-33 {
+  --hue: 199;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-34 {
+  --hue: 203;
+  --saturation: 100%;
+  --lightness: 46%;
+}
+.color-35 {
+  --hue: 187;
+  --saturation: 100%;
+  --lightness: 42%;
+}
+.color-36 {
+  --hue: 180;
+  --saturation: 100%;
+  --lightness: 76%;
+}
+.color-37 {
+  --hue: 180;
+  --saturation: 100%;
+  --lightness: 55%;
+}
+.color-38 {
+  --hue: 186;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-39 {
+  --hue: 188;
+  --saturation: 100%;
+  --lightness: 42%;
+}
+.color-40 {
+  --hue: 174;
+  --saturation: 100%;
+  --lightness: 29%;
+}
+.color-41 {
+  --hue: 166;
+  --saturation: 100%;
+  --lightness: 83%;
+}
+.color-42 {
+  --hue: 166;
+  --saturation: 100%;
+  --lightness: 70%;
+}
+.color-43 {
+  --hue: 165;
+  --saturation: 82%;
+  --lightness: 51%;
+}
+.color-44 {
+  --hue: 172;
+  --saturation: 100%;
+  --lightness: 37%;
+}
+.color-45 {
+  --hue: 122;
+  --saturation: 39%;
+  --lightness: 49%;
+}
+.color-46 {
+  --hue: 137;
+  --saturation: 77%;
+  --lightness: 85%;
+}
+.color-47 {
+  --hue: 151;
+  --saturation: 82%;
+  --lightness: 68%;
+}
+.color-48 {
+  --hue: 151;
+  --saturation: 100%;
+  --lightness: 45%;
+}
+.color-49 {
+  --hue: 145;
+  --saturation: 100%;
+  --lightness: 39%;
+}
+.color-50 {
+  --hue: 88;
+  --saturation: 50%;
+  --lightness: 53%;
+}
+.color-51 {
+  --hue: 88;
+  --saturation: 100%;
+  --lightness: 78%;
+}
+.color-52 {
+  --hue: 88;
+  --saturation: 100%;
+  --lightness: 67%;
+}
+.color-53 {
+  --hue: 93;
+  --saturation: 100%;
+  --lightness: 51%;
+}
+.color-54 {
+  --hue: 97;
+  --saturation: 81%;
+  --lightness: 48%;
+}
+.color-55 {
+  --hue: 66;
+  --saturation: 70%;
+  --lightness: 54%;
+}
+.color-56 {
+  --hue: 65;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-57 {
+  --hue: 65;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-58 {
+  --hue: 73;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-59 {
+  --hue: 75;
+  --saturation: 100%;
+  --lightness: 46%;
+}
+.color-60 {
+  --hue: 54;
+  --saturation: 100%;
+  --lightness: 62%;
+}
+.color-61 {
+  --hue: 60;
+  --saturation: 100%;
+  --lightness: 78%;
+}
+.color-62 {
+  --hue: 60;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-63 {
+  --hue: 55;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-64 {
+  --hue: 50;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-65 {
+  --hue: 45;
+  --saturation: 100%;
+  --lightness: 51%;
+}
+.color-66 {
+  --hue: 48;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-67 {
+  --hue: 47;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-68 {
+  --hue: 46;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-69 {
+  --hue: 40;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-70 {
+  --hue: 36;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-71 {
+  --hue: 38;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-72 {
+  --hue: 34;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-73 {
+  --hue: 34;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-74 {
+  --hue: 26;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-75 {
+  --hue: 14;
+  --saturation: 100%;
+  --lightness: 57%;
+}
+.color-76 {
+  --hue: 14;
+  --saturation: 100%;
+  --lightness: 75%;
+}
+.color-77 {
+  --hue: 14;
+  --saturation: 100%;
+  --lightness: 63%;
+}
+.color-78 {
+  --hue: 14;
+  --saturation: 100%;
+  --lightness: 50%;
+}
+.color-79 {
+  --hue: 12;
+  --saturation: 100%;
+  --lightness: 43%;
+}
+.color-80 {
+  --hue: 16;
+  --saturation: 25%;
+  --lightness: 38%;
+}
+.color-81 {
+  --hue: 15;
+  --saturation: 25%;
+  --lightness: 34%;
+}
+.color-82 {
+  --hue: 14;
+  --saturation: 26%;
+  --lightness: 29%;
+}
+.color-83 {
+  --hue: 11;
+  --saturation: 26%;
+  --lightness: 24%;
+}
+.color-84 {
+  --hue: 9;
+  --saturation: 28%;
+  --lightness: 19%;
+}
+.color-85 {
+  --hue: 0;
+  --saturation: 0%;
+  --lightness: 62%;
+}
+.color-86 {
+  --hue: 0;
+  --saturation: 0%;
+  --lightness: 46%;
+}
+.color-87 {
+  --hue: 0;
+  --saturation: 0%;
+  --lightness: 38%;
+}
+.color-88 {
+  --hue: 0;
+  --saturation: 0%;
+  --lightness: 26%;
+}
+.color-89 {
+  --hue: 0;
+  --saturation: 0%;
+  --lightness: 13%;
+}
+.color-90 {
+  --hue: 200;
+  --saturation: 18%;
+  --lightness: 46%;
+}
+.color-91 {
+  --hue: 199;
+  --saturation: 18%;
+  --lightness: 40%;
+}
+.color-92 {
+  --hue: 199;
+  --saturation: 18%;
+  --lightness: 33%;
+}
+.color-93 {
+  --hue: 200;
+  --saturation: 18%;
+  --lightness: 26%;
+}
+.color-94 {
+  --hue: 200;
+  --saturation: 19%;
+  --lightness: 18%;
+}
