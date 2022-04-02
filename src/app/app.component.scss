@@ -6,6 +6,7 @@
   font-weight: 300;
   flex-direction: column;
   color: var(--text-dark-clr);
+  min-height: -webkit-fill-available;
   font-family: "Open Sans", sans-serif;
   background-color: var(--bg-dark-clr);
 

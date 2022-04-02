@@ -28,6 +28,10 @@
   box-sizing: border-box;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 a {
   text-decoration: none;
 }
